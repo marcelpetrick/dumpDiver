@@ -1,19 +1,22 @@
 @echo off
-::echo "fooo ... this small batch-file shall prodcess crashdumps and extract the most important into a one-liner as output"
-
 echo  ____  _  _  _  _  ____  ____  __  _  _  ____  ____ 
 echo (    \/ )( \( \/ )(  _ \(    \(  )/ )( \(  __)(  _ \
 echo  ) D () \/ (/ \/ \ ) __/ ) D ( )( \ \/ / ) _)  )   /
 echo (____/\____/\_)(_/(__)  (____/(__) \__/ (____)(__\_)
+::echo "fooo ... this small batch-file shall process crashdumps and extract the most important into a one-liner as output"
+:: if you miss the cdb, then install from https://developer.microsoft.com/en-us/windows/downloads/sdk-archive - first option "debugging tools" is sufficient
 
-:: TODOs
+:: TODO
+:: make the path to cdb dynamic
+:: process the output, so that only FOLLOWUP_IP: and WATSON_BKT_MODULE: are presented
+:: DONE
 :: make it work xD
-:: todo make the path to cdb dynamic
 :: make the output to file at the current dmp-file-location
 
 :: print current dir
-echo "current callpath: " %~dp0
+:: echo "current callpath: " %~dp0
 
+:: assign the dump
 set arg1=%1
 shift
 
