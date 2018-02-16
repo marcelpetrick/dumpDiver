@@ -3,7 +3,7 @@ echo  ____  _  _  _  _  ____  ____  __  _  _  ____  ____
 echo (    \/ )( \( \/ )(  _ \(    \(  )/ )( \(  __)(  _ \
 echo  ) D () \/ (/ \/ \ ) __/ ) D ( )( \ \/ / ) _)  )   /
 echo (____/\____/\_)(_/(__)  (____/(__) \__/ (____)(__\_)
-::echo "fooo ... this small batch-file shall process crashdumps and extract the most important into a one-liner as output"
+:: this smol batch-file shall process crashdumps and extract the most important into a one-liner as output"
 :: if you miss the cdb, then install from https://developer.microsoft.com/en-us/windows/downloads/sdk-archive - first option "debugging tools" is sufficient
 
 :: TODO
@@ -13,16 +13,21 @@ echo (____/\____/\_)(_/(__)  (____/(__) \__/ (____)(__\_)
 :: make it work xD
 :: make the output to file at the current dmp-file-location
 
-:: print current dir
+:: ## print current dir ##
 :: echo "current callpath: " %~dp0
 
-:: assign the dump
+:: ## assign the dump ##
 set arg1=%1
 shift
 
-:: execute the cdb
+:: ## print currently processed input ##
+echo.
+echo processing "%arg1%" now .. please wait patiently :)
+
+:: ## execute the cdb ##
 "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\cdb.exe" -z %arg1% -c "!analyze -v; q" > %arg1%.txt
 
 :: echo "*** end ***"
 
-pause
+:: ## wait at the end ##
+:: pause
